@@ -11,7 +11,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import {LogOut} from "lucide-react";
+import {LogOut, User} from "lucide-react";
 import {useRouter} from "next/navigation";
 
 const Header = () => {
@@ -39,10 +39,15 @@ const Header = () => {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent>
                             <DropdownMenuLabel>{user.prenom}.{user.nom}</DropdownMenuLabel>
+                            <DropdownMenuItem className="cursor-pointer">
+                                <Link href={'profil'} className='flex '>
+                                <User size={15}/> Profil
+                                </Link>
+                            </DropdownMenuItem>
                             <DropdownMenuSeparator/>
                             <DropdownMenuItem className="flex gap-2 cursor-pointer" onClick={logout}> <LogOut
                                 size={15}/> Déconnexion</DropdownMenuItem>
-                        </DropdownMenuContent>`
+                        </DropdownMenuContent>
                     </DropdownMenu>
                 }
 
