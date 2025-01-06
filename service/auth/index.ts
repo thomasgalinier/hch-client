@@ -3,9 +3,9 @@ import {SignInSchema, SignUpSchema, UserType} from "@/schema";
 import {getUrl} from "@/service/api";
 import {useQuery, UseQueryResult} from "@tanstack/react-query";
 
-const {url, userType} = getUrl();
+const {url} = getUrl();
 const signinClient = async (data: z.infer<typeof SignInSchema>) => {
-    const response = await fetch(`${url}/auth/signin/${userType}`, {
+    const response = await fetch(`${url}/auth/signin`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ const signinClient = async (data: z.infer<typeof SignInSchema>) => {
 }
 
 const signupClient = async (data: z.infer<typeof SignUpSchema>) => {
-    const response = await fetch(`${url}/auth/signup/${userType}`, {
+    const response = await fetch(`${url}/auth/signup`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
